@@ -1,0 +1,30 @@
+[tool.pdm]
+
+[project]
+name = "pdm-check-updates"
+version = "0.1.0"
+description = "Check for available updates within pdm constraints"
+authors = [
+    {name = "YakMM", email = "yak.mayam@gmail.com"},
+]
+dependencies = []
+requires-python = ">=3.8"
+readme = "README.md"
+license = {text = "MIT"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3 :: Only",
+]
+
+[project.urls]
+Homepage = "https://github.com/yakMM/pdm-check-updates/"
+
+[project.entry-points.pdm]
+check = "check_updates:check"
+
+[build-system]
+requires = ["pdm-pep517>=1.0"]
+build-backend = "pdm.pep517.api"
