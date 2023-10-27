@@ -1,8 +1,6 @@
-[tool.pdm]
-
 [project]
 name = "pdm-check-updates"
-version = "0.1.0"
+version = "0.2.0"
 description = "Check for available updates within pdm constraints"
 authors = [
     {name = "YakMM", email = "yak.mayam@gmail.com"},
@@ -16,6 +14,8 @@ classifiers = [
     "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3 :: Only",
 ]
 
@@ -26,5 +26,5 @@ Homepage = "https://github.com/yakMM/pdm-check-updates/"
 check = "check_updates:check"
 
 [build-system]
-requires = ["pdm-pep517>=1.0"]
-build-backend = "pdm.pep517.api"
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"

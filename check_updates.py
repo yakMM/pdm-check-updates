@@ -19,7 +19,9 @@ class CheckCommand(BaseCommand):
                     first = None
                     info = False
                     dep_version = parse(str(dep.specifier).replace("=", ""))
-                    for candidate in project.get_repository()._find_candidates(dep):
+                    for candidate in project.get_repository()._find_candidates(
+                        dep, minimal_version=False
+                    ):
                         if not candidate.version:
                             raise ValueError(f"Invalid candidate: {candidate.name}")
                         version = parse(candidate.version)
@@ -43,7 +45,13 @@ class CheckCommand(BaseCommand):
                             f"'{dep_version}' => '{first.version}'"
                         )
                 else:
-                    first = next(iter(project.get_repository()._find_candidates(dep)))
+                    first = next(
+                        iter(
+                            project.get_repository()._find_candidates(
+                                dep, minimal_version=False
+                            )
+                        )
+                    )
                     if not first.version:
                         raise ValueError(f"Invalid candidate: {first.name}")
                     version = parse(first.version)
